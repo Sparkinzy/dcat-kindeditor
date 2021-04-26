@@ -11,5 +11,26 @@
 
 允许上传文件后对回调数据格式化，适配现有第三方上传结构返回的数据结构。
 
+自定义图片上传回调
+```php
+       $afterUploadedCallback=JavaScript::make(
+            <<<JS
+function(data)
+{
+    var result = {};
+    if (data.code === 0){
+        result.error = 0;
+        result.url = data.data.url;
+    }else{
+        result.error = data.code;
+        result.message = data.msg;
+    }
+    return result;
+}
+JS
+        );
+        $form->kindeditor('editor',['afterUploaded'=>$afterUploadedCallback]);
+```
+
 
 

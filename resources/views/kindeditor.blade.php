@@ -12,7 +12,6 @@
 
     </div>
 </div>
-{{ json_encode($options) }}
 <script require="@sparkinzy.dcat-kindeditor" init="{!! $selector !!}">
     Dcat.ready(function () {
         $this.extensionKindeditor({!! $options !!});

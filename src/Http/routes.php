@@ -10,7 +10,7 @@ Route::group([
 ], function (Router $router) {
     $router->any('kindeditor/upload',
         Controllers\FileController::class . '@handle')
-        ->name(config('admin.route.prefix').'.sparkinzy.kindeditor.upload');
+        ->name('sparkinzy.kindeditor.upload');
 });
 
 

@@ -86,8 +86,7 @@ class KindEditor extends Field
      */
     protected function defaultImageUploadUrl()
     {
-        $module = config('admin.route.prefix');
-        return $this->formatUrl(route(($module.'.sparkinzy.kindeditor.upload')));
+        return $this->formatUrl(admin_route(('sparkinzy.kindeditor.upload')));
     }
     /**
      * @param string $url

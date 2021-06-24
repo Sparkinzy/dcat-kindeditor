@@ -29,7 +29,8 @@ function(data)
 }
 JS
         );
-        $form->kindeditor('editor',['afterUploaded'=>$afterUploadedCallback]);
+        $custom_upload_url = 'http://upload.baidu.com/';
+        $form->kindeditor('editor',['afterUploaded'=>$afterUploadedCallback])->url($custom_upload_url);;
 ```
 
 

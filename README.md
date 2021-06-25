@@ -30,7 +30,7 @@ function(data)
 JS
         );
         $custom_upload_url = 'http://upload.baidu.com/';
-        $form->kindeditor('editor',['afterUploaded'=>$afterUploadedCallback])->url($custom_upload_url);
+        $form->kindeditor('editor')->options(['afterUploaded'=>$afterUploadedCallback])->url($custom_upload_url);'
 
 
 ```

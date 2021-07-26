@@ -13,7 +13,7 @@ function KSWFUpload(options) {
 }
 K.extend(KSWFUpload, {
 	alert: function(text){
-		K.dialog({
+		var dialog = K.dialog({
 			width : 300,
 			height: 150,
 			title : '提示',

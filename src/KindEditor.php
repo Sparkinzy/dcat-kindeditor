@@ -152,7 +152,8 @@ class KindEditor extends Field
     public function render()
     {
         $this->addVariables([
-            'options' => JavaScript::format($this->formatOptions())
+            // 过滤空数据
+            'options' => JavaScript::format(array_filter($this->formatOptions()))
         ]);
         return parent::render();
     }

@@ -27,7 +27,7 @@
 					}
 				},
 				noBtn : {
-					name : '取消',
+					name : '关闭',
 					click : function(e) {
 						dialog.remove();
 					}

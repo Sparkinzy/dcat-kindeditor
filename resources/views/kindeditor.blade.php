@@ -18,18 +18,6 @@
         width:'100%',
         fileSizeLimit:"10MB",// 前端文件大小限制
         fileUploadLimit:'30',// 前端一次上传的文件数量限制
-        afterUploaded:function(data)
-        {
-            var result = {};
-            if (data.code === 0){
-                result.error = 0;
-                result.url = data.data.url;
-            }else{
-                result.error = data.code;
-                result.message = data.msg;
-            }
-            return result;
-        },
         afterBlur:function(){
             this.sync();
         }

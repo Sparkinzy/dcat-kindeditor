@@ -23,9 +23,13 @@
         }
     }, options);
     var is_readonly = $('#'+id).attr('readonly') !== undefined;
-    var editor = KindEditor.create('#'+id, options);
+    var name = $('#'+id).attr('name');
+    if (!window.editors){
+        window.editors={};
+    }
+    window.editors[name] = KindEditor.create('#'+id, options);
     if(is_readonly) {
-        editor.readonly();
+        window.editors[name].readonly();
     }
 
 </script>

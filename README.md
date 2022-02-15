@@ -55,5 +55,17 @@ JS
 $form->kindeditor('desc')->url($custom_upload_url)->readonly();
 ```
 
+## 新增全局js变量window.editors 对象
+
+可通过表单name值获取对应的kindeditor实例,实现跨作用域调用编辑器的方法
+例如:
+```html
+<textarea name="content" >
+```
+
+```js
+var editor = window.editors.content;
+```
+
 
 

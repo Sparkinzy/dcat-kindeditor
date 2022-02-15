@@ -5,6 +5,7 @@
     "keywords": ["dcat-admin", "extension"],
     "homepage": "https://github.com/sparkinzy/dcat-kindeditor",
     "license": "MIT",
+    "version": "1.0.13",
     "authors": [
         {
             "name": "sparkinzy",

@@ -9,11 +9,11 @@ use Dcat\Admin\Form as BaseForm;
 class DcatKindeditorServiceProvider extends ServiceProvider
 {
 	protected $js = [
-	    'js/kindeditor-all-min.js',
-        'js/index.js',
+	    'js/kindeditor-all-min.js?v=1.0.15',
+        'js/index.js?v=1.0.15',
     ];
 	protected $css = [
-		'css/themes/default/default.min.css',
+		'css/themes/default/default.min.css?v=1.0.15',
 	];
 
 	public function register()

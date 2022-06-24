@@ -152,8 +152,9 @@ class KindEditor extends Field
     public function render()
     {
         $this->addVariables([
-            // 过滤空数据
-            'options' => JavaScript::format(array_filter($this->formatOptions()))
+            // 过滤空数据，有些变量是需要设置为false，所以这里信任传入数据，不再过滤
+//            'options' => JavaScript::format(array_filter($this->formatOptions()))
+            'options' => JavaScript::format($this->formatOptions())
         ]);
         return parent::render();
     }

@@ -6,7 +6,7 @@
 
         @include('admin::form.error')
 
-        <textarea data-toggle="kindeditor" name="{{ $name}}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{!! $value !!}</textarea>
+        <textarea data-toggle="kindeditor" name="{{ $name}}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ $value }}</textarea>
 
         @include('admin::form.help-block')
 

@@ -21,7 +21,7 @@ class KindEditor extends Field
         'uploadJson'      => '',
         'fileSizeLimit'   => '10MB',
         'fileUploadLimit' => '10',
-        'afterUploaded'   => '',
+//        'afterUploaded'   => '',
         'readonly'        => false,
     ];
     protected $disk;

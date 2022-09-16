@@ -146,10 +146,14 @@ items : [
 $form->kindeditor('content')
 // 在源代码后面新增一个 从Word粘贴
 ->appendToolbar('wordpaste','source')
+// 添加一组栏目
+->appendToolbar(['link','unlink'],'source')
 // 在最后新增一个 插入百度地图
 ->appendToolbar('baidumap')
 // 移除图片
 ->removeToolbar('insertimages');
+// 删除多个项目
+->removeToolbar(['justifyleft'])
 ```
 
 

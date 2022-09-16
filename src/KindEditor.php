@@ -136,20 +136,27 @@ class KindEditor extends Field
      *
      * @return $this
      */
-    public function appendToolbar($item_name,$after_item_name='')
+    public function appendToolbar($item_names,$after_item_name='')
     {
+        if (empty($item_names)){
+            return $this;
+        }
+        if (!is_array($item_names)){
+            $item_names = [$item_names];
+        }
         $items = $this->getToolbars();
         if (!empty($after_item_name)){
             $index = array_search($after_item_name,$items);
             if ($index !== false){
-                array_splice($items, $index+1,0,$item_name);
+                foreach ($item_names as $item_name){
+                    array_splice($items, $index+1,0,$item_name);
+                }
             }else{
                 // 没找到对应元素，直接追加到最后
-                $items[] = $item_name;
+                $items = array_merge($items, $item_names);
             }
-
         }else{
-            $items[] = $item_name;
+            $items = array_merge($items, $item_names);
         }
         $this->toolbar($items);
         return $this;
@@ -162,12 +169,20 @@ class KindEditor extends Field
      *
      * @return $this
      */
-    public function removeToolbar($item_name)
+    public function removeToolbar($item_names)
     {
+        if (empty($item_names)){
+            return $this;
+        }
+        if (!is_array($item_names)){
+            $item_names = [$item_names];
+        }
         $items = $this->getToolbars();
-        $index = array_search($item_name,$items);
-        if ($index !== false){
-            array_splice($items, $index,1);
+        foreach ($item_names as $item_name){
+            $index = array_search($item_name,$items);
+            if ($index !== false){
+                array_splice($items, $index,1);
+            }
         }
         $this->toolbar($items);
         return $this;

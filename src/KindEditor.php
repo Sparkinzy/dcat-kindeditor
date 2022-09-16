@@ -21,8 +21,17 @@ class KindEditor extends Field
         'uploadJson'      => '',
         'fileSizeLimit'   => '10MB',
         'fileUploadLimit' => '10',
-//        'afterUploaded'   => '',
         'readonly'        => false,
+        'items' => [
+            'source',
+            '|','formatblock', 'fontsize', '|', 'justifyleft', 'justifycenter', 'justifyright',
+            'justifyfull', 'insertorderedlist', 'insertunorderedlist',
+            'forecolor', 'hilitecolor', 'bold',
+            'italic', 'underline', 'lineheight',
+            'table',  'insertimages',
+            'preview',
+            'fullscreen',
+        ]
     ];
     protected $disk;
 
@@ -109,6 +118,58 @@ class KindEditor extends Field
     public function options($options = [])
     {
         $this->options = array_merge($this->options, $options);
+        return $this;
+    }
+    /**
+     * 获取所有工具栏目
+     * @return mixed
+     */
+    public function getToolbars()
+    {
+        return $this->options['items'];
+    }
+
+    /**
+     * 追加工具栏，也可在指定栏目后面追加栏目
+     * @param $item_name
+     * @param $after_item_name
+     *
+     * @return $this
+     */
+    public function appendToolbar($item_name,$after_item_name='')
+    {
+        $items = $this->getToolbars();
+        if (!empty($after_item_name)){
+            $index = array_search($after_item_name,$items);
+            if ($index !== false){
+                array_splice($items, $index+1,0,$item_name);
+            }else{
+                // 没找到对应元素，直接追加到最后
+                $items[] = $item_name;
+            }
+
+        }else{
+            $items[] = $item_name;
+        }
+        $this->toolbar($items);
+        return $this;
+    }
+
+    /**
+     * 移除指定工具栏项目
+     *
+     * @param $item_name
+     *
+     * @return $this
+     */
+    public function removeToolbar($item_name)
+    {
+        $items = $this->getToolbars();
+        $index = array_search($item_name,$items);
+        if ($index !== false){
+            array_splice($items, $index,1);
+        }
+        $this->toolbar($items);
         return $this;
     }
 
